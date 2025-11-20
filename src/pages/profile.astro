@@ -1,0 +1,259 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Profile | Clinton's Thoughts">
+	<main>
+		<div class="profile-header card">
+			<div class="avatar-placeholder">
+				<span>Photo</span>
+			</div>
+			<div class="profile-info">
+				<h1>Clinton Otten</h1>
+				<p class="subtitle">Aspiring Web Designer & Developer</p>
+				<div class="details">
+					<span>📍 Location: Earth</span>
+					<span>🎂 Age: 25</span>
+					<span>📧 Email: clinton@example.com</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="content-grid">
+			<section class="about card">
+				<h2>About Me</h2>
+				<p>
+					I'm a tech enthusiast with a passion for making things that look good and work well. 
+					I'm currently diving deep into web development, learning the ins and outs of modern frameworks like Astro.
+					When I'm not coding, I'm probably thinking about the future or watching classic anime.
+				</p>
+			</section>
+
+			<section class="skills card">
+				<h2>Skills</h2>
+				<div class="skill-tags">
+					<span>HTML/CSS</span>
+					<span>JavaScript</span>
+					<span>Astro</span>
+					<span>Design</span>
+					<span>Problem Solving</span>
+					<span>Relaxing</span>
+				</div>
+			</section>
+
+			<section class="experience card full-width">
+				<h2>Work Experience</h2>
+				<div class="timeline">
+					<div class="job">
+						<h3>Web Developer Intern</h3>
+						<span class="date">2024 - Present</span>
+						<p class="company">Tech Startup Inc.</p>
+						<p>Learning the ropes, fixing bugs, and building cool features. Contributing to the main codebase and collaborating with the design team.</p>
+					</div>
+					<div class="job">
+						<h3>Freelance Designer</h3>
+						<span class="date">2022 - 2024</span>
+						<p class="company">Self-Employed</p>
+						<p>Created logos, banners, and simple websites for local businesses. Learned how to communicate with clients and manage deadlines.</p>
+					</div>
+					<div class="job">
+						<h3>Tech Support Specialist</h3>
+						<span class="date">2020 - 2022</span>
+						<p class="company">Big Corp</p>
+						<p>Helped users troubleshoot issues. Developed patience and strong problem-solving skills.</p>
+					</div>
+				</div>
+			</section>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 2rem;
+		width: 1000px;
+		max-width: calc(100% - 2rem);
+		color: white;
+	}
+
+	/* Card Style (Material Design inspired) */
+	.card {
+		background: rgba(30, 41, 59, 0.7); /* Semi-transparent surface */
+		backdrop-filter: blur(12px); /* Glassmorphism */
+		border-radius: 16px;
+		padding: 2rem;
+		box-shadow: 
+			0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+			0 4px 6px -2px rgba(0, 0, 0, 0.1),
+			inset 0 1px 0 0 rgba(255, 255, 255, 0.1); /* Top highlight */
+		border: 1px solid rgba(255, 255, 255, 0.05);
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		animation: float-in 0.8s ease-out forwards;
+	}
+
+	.card:hover {
+		transform: translateY(-5px);
+		box-shadow: 
+			0 20px 25px -5px rgba(0, 0, 0, 0.4), 
+			0 10px 10px -5px rgba(0, 0, 0, 0.2),
+			0 0 20px rgba(139, 92, 246, 0.2); /* Glow effect */
+		border-color: rgba(139, 92, 246, 0.4);
+	}
+
+	@keyframes float-in {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/* Header Section */
+	.profile-header {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		margin-bottom: 2rem;
+		background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+	}
+
+	.avatar-placeholder {
+		width: 150px;
+		height: 150px;
+		border-radius: 50%;
+		background: linear-gradient(45deg, var(--accent), var(--accent-light));
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 1.2rem;
+		font-weight: bold;
+		color: white;
+		box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+		flex-shrink: 0;
+	}
+
+	.profile-info h1 {
+		margin: 0;
+		font-size: 2.5rem;
+		background: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+
+	.subtitle {
+		font-size: 1.2rem;
+		color: #94a3b8;
+		margin: 0.5rem 0 1rem 0;
+	}
+
+	.details {
+		display: flex;
+		gap: 1.5rem;
+		font-size: 0.9rem;
+		color: #cbd5e1;
+		flex-wrap: wrap;
+	}
+
+	/* Grid Layout */
+	.content-grid {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 2rem;
+	}
+
+	.full-width {
+		grid-column: 1 / -1;
+	}
+
+	h2 {
+		color: var(--accent-light);
+		margin-top: 0;
+		border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+		padding-bottom: 0.5rem;
+		margin-bottom: 1.5rem;
+	}
+
+	p {
+		line-height: 1.6;
+		color: #e2e8f0;
+	}
+
+	/* Skills Section */
+	.skill-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem;
+	}
+
+	.skill-tags span {
+		background: rgba(139, 92, 246, 0.1);
+		color: #c4b5fd;
+		padding: 0.5rem 1rem;
+		border-radius: 2rem;
+		font-size: 0.9rem;
+		border: 1px solid rgba(139, 92, 246, 0.2);
+	}
+
+	/* Experience Timeline */
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+	}
+
+	.job {
+		position: relative;
+		padding-left: 1.5rem;
+		border-left: 2px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.job::before {
+		content: '';
+		position: absolute;
+		left: -6px;
+		top: 0;
+		width: 10px;
+		height: 10px;
+		background: var(--accent);
+		border-radius: 50%;
+	}
+
+	.job h3 {
+		margin: 0;
+		font-size: 1.2rem;
+		color: white;
+	}
+
+	.job .date {
+		font-size: 0.85rem;
+		color: #94a3b8;
+		display: block;
+		margin-top: 0.2rem;
+	}
+
+	.job .company {
+		font-weight: 600;
+		color: var(--accent-light);
+		margin: 0.5rem 0;
+	}
+
+	/* Responsive */
+	@media (max-width: 768px) {
+		.profile-header {
+			flex-direction: column;
+			text-align: center;
+		}
+		
+		.details {
+			justify-content: center;
+		}
+
+		.content-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<main>
+		<div class="hero">
+			<h1>Clinton's <span class="text-gradient">Thoughts</span></h1>
+			<p class="intro">
+				Hi, I'm Clinton. I'm learning to build cool stuff on the web.
+			</p>
+		</div>
+
+		<section class="grid">
+			<div class="card">
+				<h2>Technology & Design</h2>
+				<p>
+					I'm getting into web development and design. 
+					I just want to make things that work well and look good.
+					It's a work in progress, but I'm enjoying the ride.
+				</p>
+			</div>
+			
+			<div class="card">
+				<h2>Philosophy</h2>
+				<p>
+					I like it when things just click. 
+					If I start overthinking the future, I just remember:
+					<em>"Whatever happens, happens."</em>
+				</p>
+			</div>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+	.hero {
+		text-align: center;
+		margin-bottom: 4rem;
+		padding: 4rem 0;
+	}
+	h1 {
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 1rem;
+	}
+	.text-gradient {
+		background-image: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	.intro {
+		font-size: 1.5rem;
+		color: var(--accent-light);
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 2rem;
+		padding: 0;
+	}
+	.card {
+		background: #23262d;
+		background-image: none;
+		background-size: 400%;
+		border-radius: 1rem;
+		background-position: 100%;
+		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+		padding: 2rem;
+	}
+	.card:hover {
+		background-position: 0;
+		background-image: var(--accent-gradient);
+	}
+	.card:hover h2 {
+		color: rgb(var(--accent-dark));
+	}
+	.card:hover p {
+		color: rgb(var(--accent-dark));
+	}
+	h2 {
+		margin: 0;
+		font-size: 1.5rem;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+		margin-bottom: 1rem;
+	}
+	p {
+		margin-top: 0.5rem;
+		margin-bottom: 0;
+		font-weight: 300;
+		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+	}
+	em {
+		display: block;
+		margin-top: 1rem;
+		font-style: italic;
+		font-weight: 600;
+	}
+</style>

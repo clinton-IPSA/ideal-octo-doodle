@@ -1,0 +1,51 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1); // remove the first "/"
+---
+
+<nav>
+	<div class="nav-content">
+		<a href="/" class={currentPath === "" ? "active" : ""}>Home</a>
+		<a href="/profile" class={currentPath.startsWith("profile") ? "active" : ""}>Profile</a>
+		<a href="/thoughts" class={currentPath.startsWith("thoughts") ? "active" : ""}>Thoughts</a>
+		<a href="/contact" class={currentPath.startsWith("contact") ? "active" : ""}>Contact</a>
+	</div>
+</nav>
+
+<style>
+	nav {
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+	}
+	.nav-content {
+		background: rgba(19, 21, 26, 0.8);
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		padding: 0.5rem 1rem;
+		border-radius: 2rem;
+		display: flex;
+		gap: 1rem;
+	}
+	a {
+		color: var(--text);
+		text-decoration: none;
+		padding: 0.5rem 1rem;
+		border-radius: 1.5rem;
+		font-size: 0.9rem;
+		font-weight: 500;
+		transition: all 0.3s ease;
+	}
+	a:hover {
+		background: rgba(255, 255, 255, 0.05);
+		color: rgb(var(--accent-light));
+	}
+	a.active {
+		background: var(--accent-gradient);
+		color: rgb(var(--accent-dark));
+		font-weight: 600;
+	}
+</style>
